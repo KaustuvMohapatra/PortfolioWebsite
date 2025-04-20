@@ -1,0 +1,25 @@
+# Dependencies
+/node_modules
+
+# Next.js build output and cache
+/.next/
+/out/
+
+# Production build folder (if using Vite, though your image suggests Next.js)
+# /dist
+
+# Environment variables
+.env
+.env*.local
+
+# Optional macOS folder
+.DS_Store
+
+# Optional IDE/Editor folders
+.vscode/
+.idea/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

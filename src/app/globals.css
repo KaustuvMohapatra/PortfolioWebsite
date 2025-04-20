@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.75rem;
+  --mac-window-bg: 0 0% 100%;
+  --mac-dock-bg: 240 5% 96% / 0.7;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  --mac-window-bg: 240 10% 3.9%;
+  --mac-dock-bg: 240 10% 10% / 0.7;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .mac-window {
+    @apply rounded-xl shadow-lg border bg-card p-0 relative overflow-hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .mac-window-title-bar {
+    @apply flex items-center px-4 py-2 border-b;
+  }
+
+  .mac-window-btn-container {
+    @apply flex space-x-2;
+  }
+
+  .mac-window-btn {
+    @apply h-3 w-3 rounded-full cursor-pointer transition-all duration-200;
+  }
+
+  .mac-window-btn-close {
+    @apply bg-red-500 hover:bg-red-600;
+  }
+
+  .mac-window-btn-minimize {
+    @apply bg-yellow-500 hover:bg-yellow-600;
+  }
+
+  .mac-window-btn-maximize {
+    @apply bg-green-500 hover:bg-green-600;
+  }
+
+  .mac-window-content {
+    @apply p-4 h-full overflow-auto;
+  }
+
+  .mac-dock {
+    @apply fixed bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-2xl
+           flex items-center justify-center space-x-2 z-50;
+    background-color: hsl(var(--mac-dock-bg));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mac-dock-item {
+    @apply relative flex items-center justify-center h-12 w-12 rounded-xl
+           transition-all duration-300 cursor-pointer;
+  }
+
+  .mac-dock-item:hover {
+    @apply scale-110;
+  }
+
+  .mac-dock-divider {
+    @apply h-8 w-px mx-1 bg-gray-300 dark:bg-gray-700;
+  }
+
+  .desktop-icon {
+    @apply flex flex-col items-center justify-center p-2 rounded-lg
+           hover:bg-gray-200/50 dark:hover:bg-gray-800/50 cursor-pointer
+           transition-all duration-200;
+  }
+
+  .menu-bar {
+    @apply fixed top-0 left-0 right-0 h-8 px-4 flex items-center justify-between z-50;
+    background-color: hsl(var(--mac-dock-bg));
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Window Animations */
+@keyframes windowOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes windowClose {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes windowMinimize {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.3) translateY(100px);
+  }
+}
+
+@keyframes windowMaximize {
+  from {
+    opacity: 1;
+    width: 80%;
+    height: 80%;
+  }
+  to {
+    opacity: 1;
+    width: 95%;
+    height: 90%;
+  }
+}
+
+.animate-window-open {
+  animation: windowOpen 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-window-close {
+  animation: windowClose 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-window-minimize {
+  animation: windowMinimize 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-window-maximize {
+  animation: windowMaximize 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom blur effect for backdrop */
+.mac-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Parallax effect for desktop */
+.parallax-bg {
+  transition: transform 0.1s ease-out;
+}
+
+/* Twinkle animation for stars */
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
