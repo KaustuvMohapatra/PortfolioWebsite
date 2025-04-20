@@ -225,8 +225,8 @@ Refer to the [Next.js Deployment Documentation](https://nextjs.org/docs/deployme
 
 Feel free to connect with me:
 
-*   **Portfolio:** [YOUR_LIVE_DEMO_URL]
-*   **LinkedIn:** [Your LinkedIn Profile URL]
+*   **Portfolio:** [Coming_Soon]
+*   **LinkedIn:** [https://www.linkedin.com/in/kaustuv-mohapatra-b0538428b/]
 *   **GitHub:** [https://github.com/KaustuvMohapatra]
 
 ---
