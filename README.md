@@ -1,4 +1,4 @@
-# ✨ Interactive 3D Portfolio - Kaustuv Mohapatra] ✨
+# ✨ Interactive 3D Portfolio - Kaustuv Mohapatra ✨
 
 Welcome to the repository for my personal portfolio website! This project showcases my skills and projects through a highly interactive and visually engaging experience, built with modern web technologies including Next.js, Tailwind CSS, Three.js, React Three Fiber, and Framer Motion. The design aims for a clean, sleek aesthetic, drawing inspiration from macOS interfaces, combined with immersive 3D elements.
 
@@ -163,27 +163,41 @@ Follow these instructions to set up and run the project locally.
         ```
 
 ---
-## 📁 Project Structure (Simplified)
-├── public/ # Static assets (images, 3D models .glb/.gltf)
-├── src/ # Main source code (depends on Next.js setup: app or pages dir)
-│ ├── app/ # Next.js App Router structure (if used)
-│ │ ├── layout.jsx
-│ │ └── page.jsx
-│ ├── components/ # Reusable UI components (Buttons, Cards, Loaders)
-│ │ └── canvas/ # React Three Fiber specific components (Models, Stars, Lights)
-│ ├── sections/ # Major page sections (Hero, About, Projects, Contact)
-│ ├── constants/ # Static data (navigation links, project details, skills)
-│ ├── hooks/ # Custom React hooks
-│ ├── lib/ # Utility functions, library configs
-│ ├── styles/ # Global styles (e.g., globals.css)
-│ └── ... # Other potential folders (contexts, etc.)
-├── .env.local # Local environment variables (!!! NOT committed)
-├── .gitignore # Files/folders ignored by Git
-├── next.config.js # Next.js configuration
-├── package.json # Project metadata and dependencies
-├── tailwind.config.ts # Tailwind CSS configuration
-├── tsconfig.json # TypeScript configuration
-└── README.md # This file
+## 📁 Project Structure
+
+Here's a simplified overview of the project's directory structure:
+
+*   📁 `public/` - Contains static assets accessible directly (images, 3D models like `.glb`/`.gltf`, fonts).
+*   📁 `src/` - Houses the core application source code.
+    *   📁 `app/` - The heart of the Next.js App Router implementation.
+        *   📄 `layout.tsx` / `layout.jsx` - Defines the root layout wrapping all pages.
+        *   📄 `page.tsx` / `page.jsx` - The main entry page component for the root route (`/`).
+        *   *(Other route folders/files might exist here)*
+    *   📁 `components/` - Shared, reusable UI components.
+        *   📄 `Button.tsx`, `Card.tsx`, `Loader.tsx` - General UI elements.
+        *   📁 `canvas/` - Components specifically for React Three Fiber scenes.
+            *   📄 `HeroModel.tsx`, `Stars.tsx`, `Avatar.tsx` - 3D scene elements.
+    *   📁 `sections/` - Components representing major sections of the single-page application.
+        *   📄 `Hero.tsx`, `About.tsx`, `Projects.tsx`, `Skills.tsx`, `Contact.tsx`
+    *   📁 `constants/` - Static data, arrays, or configuration objects used throughout the app.
+        *   📄 `index.ts` (or specific files like `projectsData.ts`, `skillsData.ts`)
+    *   📁 `hooks/` - Custom React hooks for reusable logic.
+        *   📄 `useScrollProgress.ts`, `useScreenSize.ts`
+    *   📁 `lib/` / `utils/` - Utility functions, helper scripts, library configurations.
+        *   📄 `motion.ts` (for Framer Motion variants), `helpers.ts`
+    *   📁 `styles/` - Global styles and potentially CSS Modules.
+        *   📄 `globals.css` - Base styles, Tailwind directives.
+*   📄 `.env.local` - Local environment variables (e.g., API keys). **Important: Not committed to Git.**
+*   📄 `.gitignore` - Specifies files and directories intentionally untracked by Git (e.g., `node_modules`, `.next`, `.env.local`).
+*   📄 `biome.json` / `.eslintrc.js` / `.prettierrc.js` - Configuration for code linting and formatting tools.
+*   📄 `components.json` - *(Likely related to shadcn/ui if you're using it)* Configuration for UI components.
+*   📄 `next.config.js` / `next.config.mjs` - Configuration options for the Next.js framework.
+*   📄 `package.json` - Lists project dependencies, scripts, and metadata.
+*   📄 `bun.lockb` / `package-lock.json` / `yarn.lock` - Lock file for dependency versions.
+*   📄 `postcss.config.js` - Configuration for PostCSS (often used with Tailwind CSS).
+*   📄 `tailwind.config.ts` / `tailwind.config.js` - Configuration for Tailwind CSS.
+*   📄 `tsconfig.json` - Configuration file for TypeScript.
+*   📄 `README.md` - This file, providing documentation for the project.
 ---
 
 
